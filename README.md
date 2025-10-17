@@ -1,84 +1,102 @@
-GPA & CGPA Calculator Web App
+# C-GPA Calculator Web App
 
-A React Native (Expo) web app for calculating GPA and CGPA based on different Bangladeshi universities’ grading systems. This app allows students to add courses, input grades and credits, track semester GPAs, and calculate the overall CGPA. Optimized for web deployment via Netlify.
+A React Native (Expo) web app for calculating GPA and CGPA based on different Bangladeshi universities’ grading systems. This app allows students to add courses, input grades and credits, track semester GPAs, and calculate the overall CGPA.
 
-📌 Features
+---
 
-Grading System Selector: Supports multiple universities (PUB, NSU, IUB, BRAC, UIU, ULAB, EDU, AIUB, PRI).
+## 📌 Features
 
-Add Courses: Input course name, grade, and credit to calculate GPA.
+- **Grading System Selector:** Supports multiple universities (Ref: https://en.wikipedia.org/wiki/Academic_grading_in_Bangladesh).
 
-Add Semesters: Track multiple semesters and calculate cumulative CGPA.
+- **Add Courses:** Input course name, grade, and credit to calculate GPA.
 
-Persistent Storage: Data saved using local storage (AsyncStorage).
+- **Add Semesters:** Track multiple semesters and calculate cumulative CGPA.
 
-Responsive Web UI: Works smoothly on desktop and mobile web.
+- **Persistent Storage:** Data saved using local storage (AsyncStorage).
 
-Clear Data Button: Reset all courses, semesters, GPA, and CGPA.
+- **Responsive Web UI:** Works smoothly on desktop and mobile web.
 
-🛠 Tech Stack
+- **Clear Data Button:** Reset all courses, semesters, GPA, and CGPA.
 
-Frontend: React Native + Expo
+---
 
-Web Support: Expo for Web
+## 🛠 Tech Stack
 
-State Management: React useState and useContext
+- **Frontend:** React Native + Expo
 
-Storage: AsyncStorage for persistence
+- **Web Support:** Expo for Web
 
-UI Components:
+---
 
-react-native-dropdown-picker
+## 📂 Folder Structure
+c_gpaproject/
 
-react-native-vector-icons
+├── app/
 
-Deployment: Netlify
+│   └── _layout.jsx
 
-⚡ Installation & Running Locally
+│   └── index.jsx
 
-Clone the repository
+├── index.web.jsx
 
+├── app.json
+
+├── package.json
+
+├── components/
+
+│   └── Colors.js
+
+│   └── ThemeContext.js
+
+├── utils/
+
+│   └── storage.js
+
+├── web-build/ or dist/
+
+├── netlify.toml
+
+└── README.md
+
+---
+
+## ⚡ Installation & Running Locally
+
+- Clone the repository
+
+```bash
 git clone https://github.com/yourusername/c_gpaproject.git
 cd c_gpaproject
 
+```
 
-Install dependencies
+- Install dependencies
 
+```bash
 npm install
 
+```
 
-Run web version
+- Run web version
 
+```bash
 npx expo start --web
 
+```
 
-Open http://localhost:8081 in your browser to test.
+- Open **http://localhost:8081** in your browser to test.
 
+---
 
-🧾 Usage
+## 🧾 Usage
 
-Select your university grading system.
+- Select your university grading system.
 
-Enter course name, grade, and credit.
+- Enter course name, grade, and credit.
 
-Press Add Course to see GPA calculation.
+- Press **Add Course** to see GPA calculation.
 
-Enter semester GPA and press Add Semester to calculate CGPA.
+- Enter semester GPA and press **Add Semester** to calculate CGPA.
 
-Press Clear to reset all data.
-
-🔗 Live Demo
-
-Your Netlify App URL
-
-📂 Folder Structure
-c_gpaproject/
-├── App.js
-├── package.json
-├── netlify.toml
-├── components/
-│   └── ThemeContext.js
-├── utils/
-│   └── storage.js
-├── web-build/ or dist/
-└── README.md
+- Press **Clear** to reset all data.
