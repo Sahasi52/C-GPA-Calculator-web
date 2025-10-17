@@ -1,4 +1,4 @@
-# C-GPA Calculator Web App
+# C-GPA-Calculator-web
 
 A React Native (Expo) web app for calculating GPA and CGPA based on different Bangladeshi universities’ grading systems. This app allows students to add courses, input grades and credits, track semester GPAs, and calculate the overall CGPA.
 
