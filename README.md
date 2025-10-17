@@ -6,7 +6,7 @@ A React Native (Expo) web app for calculating GPA and CGPA based on different Ba
 
 ## 📌 Features
 
-- **Grading System Selector:** Supports multiple universities (Ref: https://en.wikipedia.org/wiki/Academic_grading_in_Bangladesh).
+- **Grading System Selector:** Supports multiple universities. (Ref: https://en.wikipedia.org/wiki/Academic_grading_in_Bangladesh)
 
 - **Add Courses:** Input course name, grade, and credit to calculate GPA.
 
