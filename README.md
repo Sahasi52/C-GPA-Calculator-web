@@ -37,12 +37,6 @@ c_gpaproject/
 
 │   └── index.jsx
 
-├── index.web.jsx
-
-├── app.json
-
-├── package.json
-
 ├── components/
 
 │   └── Colors.js
@@ -53,9 +47,7 @@ c_gpaproject/
 
 │   └── storage.js
 
-├── web-build/ or dist/
-
-├── netlify.toml
+├── index.web.jsx
 
 └── README.md
 
