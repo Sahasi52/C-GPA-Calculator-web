@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "C_GPAProject",
-    "slug": "C_GPAProject",
+    "name": "C_GPA_Calculator",
+    "slug": "C_GPA_Calculator",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",

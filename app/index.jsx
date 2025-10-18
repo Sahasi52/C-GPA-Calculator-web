@@ -3,6 +3,7 @@ import React, { useContext, useEffect, useState } from "react";
 import {
   ActivityIndicator,
   Alert,
+  Platform,
   ScrollView,
   StyleSheet,
   Text,
@@ -176,7 +177,7 @@ const Home = () => {
     const creditValue = parseFloat(credit);
 
     if (!course || !grade || isNaN(creditValue) || point === null) {
-      Alert.alert(
+      showAlert(
         "Invalid input",
         "Please provide valid course, grade, and credit."
       );
@@ -213,7 +214,7 @@ const Home = () => {
     const gpaValue = parseFloat(gpa);
 
     if (isNaN(semesterValue) || isNaN(gpaValue)) {
-      Alert.alert(
+      showAlert(
         "Invalid input",
         "Please enter valid semester GPA and add courses first."
       );
@@ -336,6 +337,14 @@ const Home = () => {
       setSemester("");
       setGPA(null);
       setCGPA(null);
+    }
+  };
+
+  const showAlert = (title, message) => {
+    if (Platform.OS === "web") {
+      window.alert(`${title}\n\n${message}`);
+    } else {
+      Alert.alert(title, message);
     }
   };
 
