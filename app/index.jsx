@@ -179,7 +179,7 @@ const Home = () => {
     if (!course || !grade || isNaN(creditValue) || point === null) {
       showAlert(
         "Invalid input",
-        "Please provide valid course, grade, and credit."
+        "Please provide valid grading system, course, grade, and credit."
       );
       return;
     }
@@ -354,7 +354,28 @@ const Home = () => {
 
   return (
     <View style={{ flex: 1, backgroundColor: theme.background }}>
-      {/* Web Version */}
+      {/* Center Loader */}
+      {gradeSystemLoading && (
+        <View
+          style={{
+            position: "absolute",
+            top: "45%",
+            left: 0,
+            right: 0,
+            alignItems: "center",
+            justifyContent: "center",
+            zIndex: 9999,
+          }}
+        >
+          <ActivityIndicator
+            size="large"
+            color={theme.title}
+            style={{
+              transform: [{ scale: 1.5 }],
+            }}
+          />
+        </View>
+      )}
       <ScrollView
         contentContainerStyle={{
           flexGrow: 1,
