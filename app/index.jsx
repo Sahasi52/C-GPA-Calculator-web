@@ -179,7 +179,7 @@ const Home = () => {
     if (!course || !grade || isNaN(creditValue) || point === null) {
       showAlert(
         "Invalid input",
-        "Please provide valid grading system, course, grade, and credit."
+        "Please provide valid grading system, course, grade, and credit.",
       );
       return;
     }
@@ -193,11 +193,11 @@ const Home = () => {
 
     const totalPoints = updatedCourses.reduce(
       (sum, cur) => sum + cur.point * cur.credit,
-      0
+      0,
     );
     const totalCredits = updatedCourses.reduce(
       (sum, cur) => sum + cur.credit,
-      0
+      0,
     );
     const singleGPA = (totalPoints / totalCredits).toFixed(2);
     setGPA(singleGPA);
@@ -211,32 +211,25 @@ const Home = () => {
 
   const addSemester = async () => {
     const semesterValue = parseFloat(semester);
-    const gpaValue = parseFloat(gpa);
 
-    if (isNaN(semesterValue) || isNaN(gpaValue)) {
-      showAlert(
-        "Invalid input",
-        "Please enter valid semester GPA and add courses first."
-      );
+    if (isNaN(semesterValue)) {
+      Alert.alert("Invalid input", "Please enter a valid semester GPA.");
       return;
     }
 
-    const newSemester = { previousGPA: semesterValue, newGPA: gpaValue };
+    const newSemester = { gpa: semesterValue };
+
     const updatedSemesters = [...semesterList, newSemester];
     setSemesterList(updatedSemesters);
     setSemester("");
 
-    const totalGPA = updatedSemesters.reduce(
-      (sum, sem) => sum + sem.previousGPA + sem.newGPA,
-      0
-    );
-    const totalCount = updatedSemesters.length * 2;
-    const average = totalGPA / totalCount;
-    const finalCGPA = average.toFixed(2);
+    const totalGPA = updatedSemesters.reduce((sum, sem) => sum + sem.gpa, 0);
+    const finalCGPA = (totalGPA / updatedSemesters.length).toFixed(2);
+
     setCGPA(finalCGPA);
 
     try {
-      await storeData(finalCGPA);
+      await storeData(courseList, gpa, finalCGPA);
     } catch (e) {
       console.error("Error saving CGPA", e);
     }
@@ -291,17 +284,17 @@ const Home = () => {
   const storeData = async (
     courses = courseList,
     gpaValue = gpa,
-    cgpaValue = cgpa
+    cgpaValue = cgpa,
   ) => {
     try {
       await AsyncStorage.setItem("courseList", JSON.stringify(courses));
       await AsyncStorage.setItem(
         "gpa",
-        gpaValue != null ? gpaValue.toString() : "0"
+        gpaValue != null ? gpaValue.toString() : "0",
       );
       await AsyncStorage.setItem(
         "cgpa",
-        cgpaValue != null ? cgpaValue.toString() : "0"
+        cgpaValue != null ? cgpaValue.toString() : "0",
       );
     } catch (e) {
       console.error("Error saving data", e);
@@ -548,7 +541,7 @@ const Home = () => {
               key={index}
               style={[styles.buttonText, { color: theme.title }]}
             >
-              Semester {index + 1}: GPA = {sem.previousGPA}
+              Semester {index + 1}: GPA = {sem.gpa}
             </Text>
           ))}
           {cgpa && (
