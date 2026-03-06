@@ -486,7 +486,7 @@ const Home = () => {
             placeholderTextColor={theme.text}
             value={credit}
             onChangeText={setCredit}
-            keyboardType="numeric"
+            keyboardType="decimal-pad"
           />
 
           {/* Course List + GPA */}
@@ -534,7 +534,7 @@ const Home = () => {
             placeholderTextColor={theme.text}
             value={semester}
             onChangeText={setSemester}
-            keyboardType="numeric"
+            keyboardType="decimal-pad"
           />
           {semesterList.map((sem, index) => (
             <Text
